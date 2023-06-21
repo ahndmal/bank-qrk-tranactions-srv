@@ -4,16 +4,25 @@ option java_multiple_files = true;
 option java_package = "com.andmal";
 option java_outer_classname = "DataGrpcProto";
 
-package hello;
+package transactions;
 
 service TransactionsGrpc {
   rpc GetTransaction (TransRequest) returns (TransReply) {}
+  rpc GetTransactions (TransRequest) returns (stream TransReply) {}
 }
 
 message TransRequest {
-  string id = 1;
+  int64 id = 1;
+  int32 limit = 2;
 }
 
 message TransReply {
-  string message = 1;
+  int64 id = 1;
+  int64 amount = 2;
+  int64 userId = 3;
+  int64 account = 4;
+  string currency = 5;
+  string moment = 6;
+  string type = 7;
+  string when = 8;
 }

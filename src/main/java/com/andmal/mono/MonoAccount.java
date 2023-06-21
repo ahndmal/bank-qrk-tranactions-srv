@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 
 @Table(name = "accounts")
 public class MonoAccount extends PanacheEntity {
-    @Id
     public long id;
     public long amount;
     @Column(name = "user_id")

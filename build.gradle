@@ -11,16 +11,16 @@ repositories {
 dependencies {
     implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
     annotationProcessor("io.quarkus:quarkus-panache-common")
-    implementation 'io.quarkus:quarkus-grpc'
+    implementation 'io.quarkus:quarkus-resteasy-reactive'
     implementation 'io.quarkus:quarkus-resteasy-reactive-jackson'
 //    implementation 'io.quarkus:quarkus-hibernate-reactive'
     implementation("io.quarkus:quarkus-hibernate-reactive-panache")
     implementation 'io.quarkus:quarkus-rest-client-reactive'
     implementation 'io.quarkus:quarkus-vertx'
-    implementation 'io.quarkus:quarkus-resteasy-reactive'
     implementation 'io.quarkus:quarkus-reactive-pg-client'
     implementation 'io.quarkus:quarkus-rest-client-reactive-jackson'
     implementation 'io.quarkus:quarkus-arc'
+    implementation 'io.quarkus:quarkus-grpc'
     testImplementation 'io.quarkus:quarkus-junit5'
     testImplementation 'io.rest-assured:rest-assured'
 }

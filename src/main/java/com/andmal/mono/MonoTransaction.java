@@ -5,12 +5,13 @@ import io.smallrye.mutiny.Uni;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Table(name = "transactions")
 @Entity
 public class MonoTransaction extends PanacheEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long id;
     public long amount;
     public String currency;
@@ -23,8 +24,16 @@ public class MonoTransaction extends PanacheEntity {
     public LocalDateTime when;
     public Long moment;
 
+    public static Uni<List<MonoTransaction>> getAll() {
+        return listAll();
+    }
+
     public static Uni<MonoTransaction> findByUserId(long userId) {
         return find("user_id", userId).firstResult();
+    }
+
+    public static Uni<MonoTransaction> findByIdCustom(long id) {
+        return find("id", id).firstResult();
     }
 
 }
